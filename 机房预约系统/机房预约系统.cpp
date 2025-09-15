@@ -1,7 +1,11 @@
 #include<iostream>
 #include<string>
+#include<fstream>
 #include "Identity.h"
 #include "globalFile.h"
+#include "student.h"
+#include "teacher.h"
+#include "manager.h"
 
 using namespace std;
 
@@ -11,6 +15,7 @@ void LoginIn(string fileName, int type) {
 	Identity* person = NULL;
 
 	//读文件
+	//ofstream ofs("student.txt");
 	ifstream ifs;
 	ifs.open(fileName, ios::in);
 
@@ -42,7 +47,22 @@ void LoginIn(string fileName, int type) {
 	cin >> pwd;
 
 	if (type == 1) {//学生身份验证
+		int fId;//从文件中读取的ID号
+		string fName;//从文件中获取的姓名
+		string fPwd;//从文件中获取的密码
+		while (ifs >> fId && ifs >> fName && ifs >> fPwd) {
+			cout << fId << " " << fName << " " << fPwd << endl;
+			//与用户信息做对比
+			if (fId == id && fName == name && fPwd == pwd) {
+				cout << "学生验证登录成功" << endl;
+				system("pause");
+				system("cls");
+				person = new Student(id, name, pwd);
+				//进入学生身份的子菜单
 
+				return;
+			}
+		}
 	}
 	else if (type == 2) {//教师身份验证
 
@@ -72,7 +92,7 @@ int main() {
 		switch (select)
 		{
 		case 1://学生身份
-			LoginIn(STRUNCATE, 1);
+			LoginIn(STUDENT_FILE, 1);
 			break;
 		case 2:
 			LoginIn(TEACHER_FILE, 2);
