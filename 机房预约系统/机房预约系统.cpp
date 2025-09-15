@@ -81,7 +81,19 @@ void LoginIn(string fileName, int type) {
 		}
 	}
 	else if (type == 3) {//管理员身份验证
+		string fName;
+		string fPwd;
+		while (ifs >> fName && ifs >> fPwd) {
+			if (name == fName && pwd == fPwd) {
+				cout << "管理员验证登录成功" << endl;
+				system("pause");
+				system("cls");
+				person = new Manager(name, pwd);
+				//进入管理员身份的子菜单
 
+				return;
+			}
+		}
 	}
 
 	cout << "登录失败" << endl;
