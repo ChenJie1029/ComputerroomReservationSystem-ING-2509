@@ -2,8 +2,11 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+#include<vector>
 #include "Identity.h"
 #include "globalFile.h"
+#include "student.h"
+#include "teacher.h"
 
 using namespace std;
 
@@ -24,4 +27,13 @@ public:
 	void showComputer();
 	//清空所有的预约记录
 	void cleanFile();
+
+	//初始化容器
+	void initVector();
+
+	//学生容器
+	vector<Student>vStu;
+
+	//教师容器
+	vector<Teacher>vTea;
 };
