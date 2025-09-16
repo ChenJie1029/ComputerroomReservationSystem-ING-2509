@@ -1,7 +1,9 @@
 #pragma once
 #include<iostream>
 #include<string>
+#include<fstream>
 #include "Identity.h"
+#include "globalFile.h"
 
 using namespace std;
 
