@@ -85,6 +85,9 @@ void Manager::addPerson() {
 	system("cls");
 
 	ofs.close();
+
+	//调用初始化容器接口，重新获取文件中的数据
+	this->initVector();
  }
 //查看账号
 void Manager::showPerson() {
