@@ -8,6 +8,7 @@
 #include "globalFile.h"
 #include "student.h"
 #include "teacher.h"
+#include "computerRoom.h"
 
 using namespace std;
 
@@ -40,4 +41,7 @@ public:
 
 	//教师容器
 	vector<Teacher>vTea;
+
+	//机房信息
+	vector<ComputerRoom> vCom;//机房容器
 };

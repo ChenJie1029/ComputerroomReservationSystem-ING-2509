@@ -11,6 +11,17 @@ Manager::Manager(string name, string pwd) {//初始化管理员信息
 
 	//初始化容器 获取到所有文件中学生和教师信息
 	this->initVector();
+
+	//初始化机房信息
+	ifstream ifs;
+	ifs.open(COMPUTER_FILE, ios::in);
+
+	ComputerRoom com;
+	while (ifs >> com.m_ComId && ifs >> com.m_MaxNum) {
+		vCom.push_back(com);
+	}
+	ifs.close();
+	cout << "机房的数量为：" << vCom.size() << endl;
 }
 //菜单界面  虚构重写
 void Manager::operMenu() {
@@ -122,8 +133,17 @@ void Manager::showPerson() {
 	system("cls");
 }
 //查看机房的信息
-void Manager::showComputer() {
 
+void printComputerRoom(ComputerRoom& c) {
+	cout << "机房编号：" << c.m_ComId << "\t" << "机房容量：" << c.m_MaxNum << endl;
+}
+
+void Manager::showComputer() {
+	cout << "机房信息如下：" << endl;
+	for_each(vCom.begin(), vCom.end(), printComputerRoom);
+	system("pause");
+	system("cls");
+	
 }
 //清空所有的预约记录
 void Manager::cleanFile() {
