@@ -3,6 +3,7 @@
 #include<string>
 #include<fstream>
 #include<vector>
+#include<algorithm>
 #include "Identity.h"
 #include "globalFile.h"
 #include "student.h"
