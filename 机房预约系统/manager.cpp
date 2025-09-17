@@ -147,7 +147,12 @@ void Manager::showComputer() {
 }
 //清空所有的预约记录
 void Manager::cleanFile() {
+	ofstream ofs(ORDER_FILE, ios::trunc);
+	ofs.close();
 
+	cout << "清空成功！" << endl;
+	system("pause");
+	system("cls");
 }
 
 //初始化容器
