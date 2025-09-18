@@ -6,6 +6,7 @@
 #include "computerRoom.h"
 #include "Identity.h"
 #include "globalFile.h"
+#include "orderFile.h"
 
 using namespace std;
 

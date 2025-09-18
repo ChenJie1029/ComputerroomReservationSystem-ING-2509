@@ -98,7 +98,7 @@ void Student::applyOrder() {
 }
 //查看自身的预约
 void Student::showMyOrder() {
-
+	OrderFile of;
 }
 //查看所有的预约
 void Student::showAllOrder() {
