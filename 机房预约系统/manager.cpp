@@ -89,6 +89,7 @@ void Manager::addPerson() {
 	cin >> pwd;
 
 	//向文件中添加数据
+	cout << endl;
 	ofs << id << " " << name << " " << pwd << endl;
 	cout << "添加成功" << endl;
 
