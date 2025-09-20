@@ -6,6 +6,7 @@
 #include "student.h"
 #include "teacher.h"
 #include "manager.h"
+#include "orderFile.h"
 
 using namespace std;
 
@@ -32,6 +33,33 @@ void studentMenu(Identity*& student) {
 		else {
 			//注销登录
 			delete student;
+			cout << "注销成功" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+	}
+}
+
+//进入教师子菜单界面
+void teacherMenu(Identity*& teacher) {
+	while (1) {
+		//调用子菜单界面
+		teacher->operMenu();
+
+		Teacher* tea = (Teacher*)teacher;
+		int select = 0;//接受用户的选择
+
+		cin >> select;
+
+		if (select == 1) {//查看所有的预约
+			tea->showAllOrder();
+		}
+		else if (select == 2) {//审核预约
+			tea->valiOrder();
+		}
+		else {
+			delete teacher;
 			cout << "注销成功" << endl;
 			system("pause");
 			system("cls");
@@ -145,7 +173,7 @@ void LoginIn(string fileName, int type) {
 				system("cls");
 				person = new Teacher(id, name, pwd);
 				//进入教师身份的子菜单
-
+				teacherMenu(person);
 				return;
 			}
 		}

@@ -63,7 +63,7 @@ void Student::applyOrder() {
 		if (interval >= 1 && interval <= 2) {
 			break;
 		}
-		cout << "输入有误，请重新输入" < endl;
+		cout << "输入有误，请重新输入" << endl;
 	}
 
 	cout << "请选择机房" << endl;
@@ -123,7 +123,7 @@ void Student::showMyOrder() {
 				status += "预约成功";
 			}
 			else if (of.m_orderData[i]["status"] == "-1") {
-				status += "预约失败"；
+				status += "预约失败";
 			}
 			else {
 				status += "取消预约";
