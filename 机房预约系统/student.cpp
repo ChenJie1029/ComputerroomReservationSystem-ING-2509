@@ -190,8 +190,42 @@ void Student::cancelOrder() {
 			//再筛选状态 审核中或者预约成功
 			if (of.m_orderData[i]["status"] == "1" || of.m_orderData[i]["status"] == "2") {
 				v.push_back(i);
-				cout << index++ << "" << endl;
+				cout << index++ << "、";
+				cout << "预约日期：周" << of.m_orderData[i]["date"];
+				cout << "时间段：" << (of.m_orderData[i]["interval"] == "1" ? "上午" : "下午");
+				cout << "机房编号：" << of.m_orderData[i]["roomId"];
+				string status = "状态：";
+				if (of.m_orderData[i]["status"] == "1") {
+					status += "审核中";
+
+				}
+				else if(of.m_orderData[i]["status"] == "2"){
+					status += "预约成功";
+				}
+				cout << status << endl;
  			}
 		}
 	}
+	cout << "请输入取消的记录，0代表返回" << endl;
+	int select = 0;
+
+	while (1) {
+		cin >> select;
+
+		if (select >= 0 && select <= v.size()) {
+			if (select == 0) {
+				break;
+			}
+			else {
+				of.m_orderData[v[select - 1]]["status"] = "0";
+				of.updateOrder();
+				cout << "已经取消了预约" << endl;
+				break;
+			}
+		}
+		cout << "输入有误请重新输入" << endl;
+	}
+
+	system("pause");
+	system("cls");
 }
