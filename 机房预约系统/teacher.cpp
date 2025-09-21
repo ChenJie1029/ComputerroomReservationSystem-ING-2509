@@ -33,7 +33,14 @@ void Teacher::showAllOrder() {
 	for (int i = 0; i < of.m_Size; i++) {
 		cout << i + 1 << "、";
 		cout << "预约日期: 周" << of.m_orderData[i]["date"];
-		cout << "时间段：" << (of.m_orderData[i]["interval"] == "1" ？ "上午" : "下午");
+		//cout << "时间段：" << (of.m_orderData[i]["interval"] == "1" ？ "上午" : "下午");
+		cout << " 时间段：";
+		if (of.m_orderData[i]["interval"] == "1") {
+			cout << "上午" << endl;
+		}
+		else {
+			cout << "下午" << endl;
+		}
 		cout << "学号：" << of.m_orderData[i]["stuId"];
 		cout << "姓名：" << of.m_orderData[i]["stuName"];
 		cout << "机房编号：" << of.m_orderData[i]["roomId"];
@@ -75,7 +82,14 @@ void Teacher::valiOrder() {
 			v.push_back(i);
 			cout << ++index << "、";
 			cout << "预约日期：周" << of.m_orderData[i]["date"];
-			cout << " 时间段：" << (of.m_orderData[i]["interval"] == "1" ? "上午" : "下午");
+			//cout << "时间段：" << (of.m_orderData[i]["interval"] == "1" ? "上午" : "下午");
+			cout << " 时间段：";
+			if (of.m_orderData[i]["interval"] == "1") {
+				cout << "上午" << endl;
+			}
+			else {
+				cout << "下午" << endl;
+			}
 			cout << " 学生编号：" << of.m_orderData[i]["stuId"];
 			cout << " 学生姓名：" << of.m_orderData[i]["stuName"];
 			cout << " 机房编号：" << of.m_orderData[i]["roomId"];
@@ -90,7 +104,7 @@ void Teacher::valiOrder() {
 
 	while (1) {
 		cin >> select;
-		if (select >= 0 && select <= v.size()) {
+		if (select >= 0 && select <= 10) {  //if (select >= 0 && select <= v.size()) {
 			if (select == 0) {
 				break;
 			}
