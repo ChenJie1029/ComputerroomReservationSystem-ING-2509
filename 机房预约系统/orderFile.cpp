@@ -95,7 +95,7 @@ OrderFile::OrderFile() {
 //更新预约记录
 void OrderFile::updateOrder() {
 	if (this->m_Size == 0) {
-		return 0;//预约记录0条，直接return
+		return;//预约记录0条，直接return
 	}
 
 	ofstream ofs(ORDER_FILE, ios::out | ios::trunc);
