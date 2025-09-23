@@ -67,7 +67,7 @@ void Student::applyOrder() {
 	}
 
 	cout << "请选择机房" << endl;
-	for (int i = 0; i < vCom.size(); i++) {
+	for (unsigned int i = 0; i < vCom.size(); i++) {
 		cout << vCom[i].m_ComId << "号机房容量为：" << vCom[i].m_MaxNum << endl;
 	}
 
@@ -207,7 +207,7 @@ void Student::cancelOrder() {
 		}
 	}
 	cout << "请输入取消的记录，0代表返回" << endl;
-	int select = 0;
+	unsigned int select = 0;
 
 	while (1) {
 		cin >> select;
